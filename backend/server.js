@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 8000;
 
 console.log(process.env.MONGO_URI);
 
-app.use(express.json()); // to parse req.body (for user)
+app.use(express.json({limit:"5mb"})); // to parse req.body (for user)
 app.use(express.urlencoded({ extended: true})); // to parse from data(urlencoded)
 
 app.use(cookieParser());
