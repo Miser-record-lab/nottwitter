@@ -217,7 +217,7 @@ export const getUserPosts = async (req, res) => {
         const user = await User.findOne({ username});
         if(!user) return res.status(404).json({ error: "User not found" });
 
-        const posts = await Post.findOne({ user: user._id }).sort({ createdAt: -1 })
+        const posts = await Post.find({ user: user._id }).sort({ createdAt: -1 })
         .populate({
             path: "user",
             select: "-password"
