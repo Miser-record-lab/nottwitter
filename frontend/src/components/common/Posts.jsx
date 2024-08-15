@@ -24,7 +24,7 @@ const Posts = ({feedType, username, userId}) => {
 	const POST_ENDPOINT = getPostEndpoint();
 
 	const  {
-		data:posts  = [], 
+		data:posts, 
 		isLoading, 
 		refetch, 
 		isRefetching,
@@ -38,8 +38,8 @@ const Posts = ({feedType, username, userId}) => {
 				if(!res.ok) {
 					throw new Error(data.error || "Something went wrong");
 				}
-				// return data;
-				return Array.isArray(data) ? data : [];
+				return data;
+				// return Array.isArray(data) ? data : [];
 
 			} catch (error) {
 				throw new Error(error);
